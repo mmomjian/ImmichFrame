@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using Avalonia.Animation;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 using ImmichFrame.Helpers;
 using ImmichFrame.ViewModels;
@@ -17,6 +18,8 @@ public partial class MainView : BaseView
     {
         InitializeComponent();
         this.AttachedToVisualTree += OnAttachedToVisualTree;
+        AddHandler(PointerPressedEvent, OnPointerPressed, RoutingStrategies.Tunnel | RoutingStrategies.Bubble, handledEventsToo: true);
+        AddHandler(KeyDownEvent, OnKeyPressed, RoutingStrategies.Tunnel | RoutingStrategies.Bubble, handledEventsToo: true);
     }
     private async void OnAttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e)
     {
@@ -55,5 +58,21 @@ public partial class MainView : BaseView
             _viewModel.TimerEnabled = false;
 
         base.Dispose();
+    }
+    private void OnKeyPressed(object? sender, KeyEventArgs e)
+    {
+        if(PlatformDetector.IsScreenSaverMode)
+        {
+            Environment.Exit(0);
+        }
+        base.OnKeyDown(e);
+    }
+    private void OnPointerPressed(object? sender, PointerPressedEventArgs e)
+    {
+        if (PlatformDetector.IsScreenSaverMode)
+        {
+            Environment.Exit(0);            
+        }
+        base.OnPointerPressed(e);
     }
 }

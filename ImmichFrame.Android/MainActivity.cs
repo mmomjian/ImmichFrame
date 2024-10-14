@@ -4,6 +4,7 @@ using Android.OS;
 using Android.Views;
 using Avalonia;
 using Avalonia.Android;
+using ImmichFrame.Helpers;
 
 namespace ImmichFrame.Android;
 
@@ -26,5 +27,17 @@ public class MainActivity : AvaloniaMainActivity<App>
     {
         return base.CustomizeAppBuilder(builder)
             .WithInterFont();
+    }
+    public override bool OnKeyDown(Keycode keyCode, KeyEvent? e)
+    {
+        if (PlatformDetector.IsScreenSaverMode)
+        {
+            Finish();
+            return true;
+        }
+        else
+        {
+            return base.OnKeyDown(keyCode, e);
+        }
     }
 }

@@ -49,6 +49,9 @@
     <Compile Update="Views\ErrorView.axaml.cs">
       <DependentUpon>ErrorView.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ScreenSaverView.axaml.cs">
+      <DependentUpon>ScreenSaverView.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\SettingsView.axaml.cs">
       <DependentUpon>SettingsView.axaml</DependentUpon>
     </Compile>

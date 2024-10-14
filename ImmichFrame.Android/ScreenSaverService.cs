@@ -2,6 +2,7 @@
 using Android.Content;
 using Android.OS;
 using Android.Service.Dreams;
+using ImmichFrame.Helpers;
 
 namespace ImmichFrame.Android
 {
@@ -31,6 +32,7 @@ namespace ImmichFrame.Android
         public override void OnDreamingStarted()
         {
             base.OnDreamingStarted();
+            PlatformDetector.IsScreenSaverMode = true;
             // Launch main activity when the screensaver starts
             var intent = new Intent(this, typeof(MainActivity));
             intent.AddFlags(ActivityFlags.ReorderToFront | ActivityFlags.NewTask);
@@ -41,6 +43,7 @@ namespace ImmichFrame.Android
         {
             base.OnDreamingStopped();
             ReleaseWakeLock();
+            Process.KillProcess(Process.MyPid());
         }
 
         public override void OnDetachedFromWindow()

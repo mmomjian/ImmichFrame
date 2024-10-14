@@ -19,5 +19,6 @@ namespace ImmichFrame.Helpers
                    RuntimeInformation.IsOSPlatform(OSPlatform.Linux) ||
                    RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
         }
+        public static bool IsScreenSaverMode { get; set; } = false;
     }
 }
