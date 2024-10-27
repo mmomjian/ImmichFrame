@@ -23,7 +23,6 @@ namespace ImmichFrame.ViewModels
                 {
                     var settings = Settings.CurrentSettings;
 
-                    Margin = Thickness.Parse(settings.Margin);
 
                     ContentViewModel = new MainViewModel();
                 }
@@ -31,8 +30,6 @@ namespace ImmichFrame.ViewModels
             catch (SettingsNotValidException ex)
             {
                 ContentViewModel = new ErrorViewModel(ex);
-
-                Margin = new Thickness(0);
             }
 
             this.ContentViewModel.Navigated += Navigate;

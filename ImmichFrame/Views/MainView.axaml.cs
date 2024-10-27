@@ -18,7 +18,7 @@ public partial class MainView : BaseView
         InitializeComponent();
         this.AttachedToVisualTree += OnAttachedToVisualTree;
     }
-    private async void OnAttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e)
+    private void OnAttachedToVisualTree(object? sender, VisualTreeAttachmentEventArgs e)
     {
         if (PlatformDetector.IsAndroid())
         {
@@ -31,29 +31,7 @@ public partial class MainView : BaseView
         }
 
         _viewModel = (this.DataContext as MainViewModel)!;
-        if (transitioningControl.PageTransition is CrossFade crossFade)
-        {
-            crossFade.Duration = TimeSpan.FromSeconds(_viewModel.Settings.TransitionDuration);
-        }
-        await InitializeViewModelAsync();
-    }
-    private async Task InitializeViewModelAsync()
-    {
-        try
-        {
-            await _viewModel!.InitializeAsync();
-        }
-        catch (Exception ex)
-        {
-            _viewModel!.Navigate(new ErrorViewModel(ex));
-        }
+        //MainWebView.Url = new Uri(_viewModel.Settings.ImmichServerUrl);
     }
 
-    public override void Dispose()
-    {
-        if (_viewModel != null)
-            _viewModel.TimerEnabled = false;
-
-        base.Dispose();
-    }
 }
