@@ -11,12 +11,10 @@ namespace ImmichFrame.ViewModels
     {
         [ObservableProperty]
         public Settings settings;
-        public ICommand SaveCommand { get; set; }
-        public ICommand CancelCommand { get; set; }
-
-        // Parameterless constructor for XAML and design-time support
-        public SettingsViewModel() : this(true) { }
-        public SettingsViewModel(bool cancleEnabled = true)
+        public ICommand SaveCommand { get; set; }        
+        
+       
+        public SettingsViewModel()
         {
             try
             {
@@ -27,35 +25,13 @@ namespace ImmichFrame.ViewModels
                 Settings = new Settings();
             }
 
-            SaveCommand = new RelayCommand(SaveAction);
-            CancelCommand = new RelayCommand(CancelAction);
+            SaveCommand = new RelayCommand(SaveAction);            
         }
-        private void CancelAction()
-        {
-            try
-            {
-                Settings.ReloadFromJson();
-                Navigate(new MainViewModel());
-            }
-            catch (SettingsNotValidException)
-            {
-                this.Navigate(new ErrorViewModel(new Exception("Please provide valid settings")));
-            }
-        }
-
+        
         private void SaveAction()
         {
-            try
-            {
-                Settings.SaveSettings(Settings);
-                Settings = Settings.CurrentSettings;
-            }
-            catch (Exception ex)
-            {
-                // could not parse 
-                this.Navigate(new ErrorViewModel(ex));
-                return;
-            }
+            Settings.SaveSettings(Settings);
+            Settings = Settings.CurrentSettings;
 
             Navigate(new MainViewModel());
         }

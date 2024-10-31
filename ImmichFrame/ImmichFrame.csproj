@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="11.2.0-rc2" />
-    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.0-rc2" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0-rc2" />
+    <PackageReference Include="Avalonia" Version="11.2.0" />
+    <PackageReference Include="Avalonia.Fonts.Inter" Version="11.2.0" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.2.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
 
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
@@ -45,16 +45,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ErrorView.axaml.cs">
-      <DependentUpon>ErrorView.axaml</DependentUpon>
-    </Compile>
     <Compile Update="Views\SettingsView.axaml.cs">
       <DependentUpon>SettingsView.axaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Settings.json">
+    <None Update="ClientSettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="Settings.xml">

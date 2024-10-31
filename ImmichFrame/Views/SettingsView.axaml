@@ -45,22 +45,15 @@
   <ScrollViewer x:Name="scrollViewer">
     <StackPanel Orientation="Vertical" Margin="10" >
         <StackPanel>
-          <TextBlock Text="ImmichServerUrl"/>
-          <TextBox x:Name="txtImmichServerUrl" Text="{Binding Settings.ImmichServerUrl}" Watermark="http://192.168.0.100:2283" Classes="empty" />
+          <TextBlock Text="immichFrame server URL"/>
+          <TextBox x:Name="txtImmichServerUrl" Text="{Binding Settings.ImmichServerUrl}" />
         </StackPanel>
-      
-      <UniformGrid Columns="3" Margin="0,10" >
-        <Button Content="Cancel"
-            IsVisible="{Binding CancelVisible}"
-            HorizontalAlignment="Stretch"
-            Command="{Binding CancelCommand}"
-            HorizontalContentAlignment="Center"/>
-        <Button Content="Save"
+
+      <Button Content="Save"
             HorizontalAlignment="Stretch"
             Command="{Binding SaveCommand}"
             Click="OnSaveClick"
             HorizontalContentAlignment="Center"/>
-      </UniformGrid>
     </StackPanel>
   </ScrollViewer>
 </UserControl>

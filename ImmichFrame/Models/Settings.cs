@@ -16,17 +16,8 @@ namespace ImmichFrame.Models
         public static string JsonSettingsPath
         {
             get
-            {
-                string basePath;
-                if (PlatformDetector.IsAndroid())
-                {
-                    basePath = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
-                }
-                else
-                {
-                    basePath = AppDomain.CurrentDomain.BaseDirectory;
-                }
-                return Path.Combine(basePath, "Settings.json");
+            {                
+                return Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ClientSettings.json");
             }
         }
 
@@ -139,7 +130,7 @@ namespace ImmichFrame.Models
         {
             var defaultSettings = new Settings
             {
-                ImmichServerUrl = ""
+                ImmichServerUrl = "http://www.example.com"
             };
             return defaultSettings;
         }

@@ -13,24 +13,9 @@ namespace ImmichFrame.ViewModels
 
         public MainWindowViewModel()
         {
-            try
-            {
-                if (!File.Exists(Settings.JsonSettingsPath))
-                {
-                    ContentViewModel = new WelcomeViewModel();
-                }
-                else
-                {
-                    var settings = Settings.CurrentSettings;
+            var settings = Settings.CurrentSettings;
 
-
-                    ContentViewModel = new MainViewModel();
-                }
-            }
-            catch (SettingsNotValidException ex)
-            {
-                ContentViewModel = new ErrorViewModel(ex);
-            }
+            ContentViewModel = new MainViewModel();
 
             this.ContentViewModel.Navigated += Navigate;
             this.ContentViewModel.MarginUpdated += UpdateMargin;
