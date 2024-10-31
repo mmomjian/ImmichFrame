@@ -9,6 +9,7 @@ import android.view.KeyEvent
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
+import android.view.WindowManager
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
@@ -27,8 +28,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         setContentView(R.layout.activity_main)
         hideSystemUI()
 
@@ -81,6 +84,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     @SuppressLint("NewApi")
+    @Suppress("DEPRECATION")
     private fun hideSystemUI() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             // For API 30 and above
@@ -101,7 +105,6 @@ class MainActivity : AppCompatActivity() {
                             or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                     )
         }
-        //window.setBackgroundDrawableResource(android.R.color.transparent)
     }
 
     override fun onWindowFocusChanged(hasFocus: Boolean) {
