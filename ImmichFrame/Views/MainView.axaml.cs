@@ -1,11 +1,7 @@
 ﻿using Avalonia;
-using Avalonia.Animation;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
 using ImmichFrame.Helpers;
 using ImmichFrame.ViewModels;
-using System;
-using System.Threading.Tasks;
 
 namespace ImmichFrame.Views;
 
@@ -31,7 +27,6 @@ public partial class MainView : BaseView
         }
 
         _viewModel = (this.DataContext as MainViewModel)!;
-        //MainWebView.Url = new Uri(_viewModel.Settings.ImmichServerUrl);
     }
 
 }

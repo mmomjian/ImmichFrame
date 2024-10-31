@@ -1,25 +1,18 @@
-﻿using Avalonia.Media;
-using Avalonia.Platform.Storage;
-using ImmichFrame.Core.Exceptions;
+﻿using ImmichFrame.Core.Exceptions;
 using ImmichFrame.Helpers;
-using ImmichFrame.Core.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace ImmichFrame.Models
 {
     public partial class Settings
     {
-       
+
         public string ImmichServerUrl { get; set; } = string.Empty;
-        
+
         public static string JsonSettingsPath
         {
             get
@@ -128,7 +121,7 @@ namespace ImmichFrame.Models
                             throw new SettingsNotValidException($"Value of '{SettingsValue.Key}' is not a valid URL: '{url}'");
                         }
                         property.SetValue(settings, url);
-                        break;                    
+                        break;
                     default:
                         throw new SettingsNotValidException($"Element '{SettingsValue.Key}' is unknown. ('{value}')");
                 }
@@ -141,12 +134,12 @@ namespace ImmichFrame.Models
         {
             var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(Settings.JsonSettingsPath, json);
-        }       
+        }
         private static Settings GetDefaultSettingsFile()
         {
             var defaultSettings = new Settings
             {
-                ImmichServerUrl = ""                
+                ImmichServerUrl = ""
             };
             return defaultSettings;
         }

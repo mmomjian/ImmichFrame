@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Desktop" Version="11.2.0-beta1" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.2.0-rc2" />
     <PackageReference Include="WebView.Avalonia.Desktop" Version="11.0.0.1" />
   </ItemGroup>
 
