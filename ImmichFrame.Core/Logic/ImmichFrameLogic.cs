@@ -61,7 +61,7 @@ namespace ImmichFrame.Core.Logic
             return await GetRandomAssets();
         }
 
-        public async Task<AssetResponseDto> GetNextAsset()
+        public async Task<AssetResponseDto?> GetNextAsset()
         {
             if ((await FilteredAssetInfos) != null)
             {
