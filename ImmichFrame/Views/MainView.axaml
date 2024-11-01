@@ -21,11 +21,11 @@
   <Grid ColumnDefinitions="*, *, *" RowDefinitions="*, *, *">
     <WebView x:Name="MainWebView" Url="{Binding ServerUri}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
 
-    <Popup IsOpen="True" PlacementMode="Top" HorizontalAlignment="Center" >
+    <Popup IsOpen="True" Placement="Top" HorizontalAlignment="Center" >
       <Button x:Name="btnSettings" Command="{Binding NavigateSettingsPageCommand}" Width="200" Height="200"/>
     </Popup>
 
-    <Popup IsOpen="True" PlacementMode="Bottom" HorizontalAlignment="Center" >
+    <Popup IsOpen="True" Placement="Bottom" HorizontalAlignment="Center" >
       <Button x:Name="btnQuit" Command="{Binding QuitCommand}" Width="200" Height="200"/>
     </Popup>
   </Grid>
