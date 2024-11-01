@@ -130,7 +130,7 @@ namespace ImmichFrame.Models
         {
             var defaultSettings = new Settings
             {
-                ImmichServerUrl = "http://www.example.com"
+                ImmichServerUrl = "https://immichframe.github.io/ImmichFrame/"
             };
             return defaultSettings;
         }
