@@ -23,7 +23,7 @@ namespace ImmichFrame.Core.Logic
         private static AlbumResponseDto immichFrameAlbum = new AlbumResponseDto();
 
 
-        private Task<IEnumerable<Guid>> _excludedAlbumAssets;
+        private Task<IEnumerable<Guid>>? _excludedAlbumAssets;
         private Task<IEnumerable<Guid>> ExcludedAlbumAssets
         {
             get
