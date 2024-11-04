@@ -1,6 +1,7 @@
 ﻿using System;
 
 using Avalonia;
+using Avalonia.WebView.Desktop;
 
 namespace ImmichFrame.Desktop;
 
@@ -18,6 +19,7 @@ class Program
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()
+            .UseDesktopWebView()
             .LogToTrace();
 
 }

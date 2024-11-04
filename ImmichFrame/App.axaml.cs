@@ -3,6 +3,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
 using Avalonia.Markup.Xaml;
 using ImmichFrame.Views;
+using AvaloniaWebView;
 namespace ImmichFrame;
 
 public partial class App : Application
@@ -32,5 +33,6 @@ public partial class App : Application
     public override void RegisterServices()
     {
         base.RegisterServices();
+        AvaloniaWebViewBuilder.Initialize(default);
     }
 }

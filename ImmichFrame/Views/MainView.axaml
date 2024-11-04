@@ -2,32 +2,31 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-			 xmlns:webview="clr-namespace:WebViewControl;assembly=WebViewControl.Avalonia"
              xmlns:vm="using:ImmichFrame.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="600"
              x:Class="ImmichFrame.Views.MainView"
              x:DataType="vm:MainViewModel">
-	<Design.DataContext>
-		<vm:MainViewModel />
-	</Design.DataContext>
-	<UserControl.Styles>
-		<Style Selector="Button">
-			<Setter Property="Background" Value="Transparent"/>
-			<Setter Property="HorizontalAlignment" Value="Stretch"/>
-			<Setter Property="VerticalAlignment" Value="Stretch"/>
-			<Setter Property="Focusable" Value="True"/>
-		</Style>
-	</UserControl.Styles>
+  <Design.DataContext>
+    <vm:MainViewModel />
+  </Design.DataContext>
+  <UserControl.Styles>
+    <Style Selector="Button">
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="HorizontalAlignment" Value="Stretch"/>
+      <Setter Property="VerticalAlignment" Value="Stretch"/>
+      <Setter Property="Focusable" Value="True"/>
+    </Style>
+  </UserControl.Styles>
 
-	<Grid ColumnDefinitions="*, *, *" RowDefinitions="*, *, *">
-		<webview:WebView x:Name="MainWebView" Focusable="True" Address="{Binding ServerUri}" Grid.ColumnSpan="3" Grid.RowSpan="3" />
+  <Grid ColumnDefinitions="*, *, *" RowDefinitions="*, *, *">
+    <WebView x:Name="MainWebView" Url="{Binding ServerUri}" Grid.ColumnSpan="3" Grid.RowSpan="3"/>
 
-		<Popup IsOpen="True" Placement="Top" HorizontalAlignment="Center" >
-			<Button x:Name="btnSettings" Command="{Binding NavigateSettingsPageCommand}" Width="200" Height="200"/>
-		</Popup>
+    <Popup IsOpen="True" Placement="Top" HorizontalAlignment="Center" >
+      <Button x:Name="btnSettings" Command="{Binding NavigateSettingsPageCommand}" Width="200" Height="200"/>
+    </Popup>
 
-		<Popup IsOpen="True" Placement="Bottom" HorizontalAlignment="Center" >
-			<Button x:Name="btnQuit" Command="{Binding QuitCommand}" Width="200" Height="200"/>
-		</Popup>
-	</Grid>
+    <Popup IsOpen="True" Placement="Bottom" HorizontalAlignment="Center" >
+      <Button x:Name="btnQuit" Command="{Binding QuitCommand}" Width="200" Height="200"/>
+    </Popup>
+  </Grid>
 </UserControl>
